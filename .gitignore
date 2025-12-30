@@ -1,0 +1,54 @@
+# Results and generated data
+result/
+*.csv
+*.xlsx
+
+# Input data (too large for repo)
+input_texts/
+
+# Parser models (download separately)
+models/
+*.char
+*.zip
+
+# Log files
+*.log
+f*_*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE and OS files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backup and old versions
+*_backup.py
+*_old.py
+*_improved*.py
+*_prev*
+
+# Test outputs
+test_result/
+test_*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.temp
+
