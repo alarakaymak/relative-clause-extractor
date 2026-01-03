@@ -22,11 +22,14 @@ This project implements a comprehensive relative clause extraction system that i
 - `main.py` - Entry point and execution script
 - `tidy.py` - Text cleaning and preprocessing utilities
 
-### Results and Data
-- `result/spaCy_RCs.csv` - Main results dataset with extracted relative clauses
-- `input_texts/` - Input text files for processing
-- `result/` - Output files and processed results
-- `models/` - Parser models (ptb.biaffine.dep.lstm.char, ptb.crf.con.lstm.char)
+### Data Files (Download from Google Drive)
+- `models/` - Parser models (ptb.biaffine.dep.lstm.char, ptb.crf.con.lstm.char) - **Download from Google Drive**
+- `input_texts/` - Sample input text files (f23, f24, f25 corpora) - **Download from Google Drive**
+- `result/` - Pre-computed results for f23, f24, f25 corpora - **Download from Google Drive** (optional, for reference)
+- `rc-nlp-sample-2025Nov.xlsx` - Validation data with annotated results - **Download from Google Drive**
+
+### Generated Outputs
+- When you run the extractor, new results will be saved to `result/` directory
 
 ## Files Description
 
@@ -118,26 +121,53 @@ This project implements a comprehensive relative clause extraction system that i
    nltk.download('punkt_tab')
    ```
 
-4. **Download parser models**:
+4. **Download required files from Google Drive**:
    
-   The parser models are too large for GitHub (~330MB each). You have two options:
+   Due to file size limitations, the following are hosted on Google Drive:
+   - **Models** (~665MB): Parser models needed to run the extractor
+   - **Input corpora**: Sample input text files (f23, f24, f25) for testing
+   - **Results** (optional): Pre-computed extraction results for f23, f24, f25 corpora
+   - **Validation data**: Annotated Excel file with validation results
    
-   **Option A: Automatic download (recommended)**
+   **Download from Google Drive**: https://drive.google.com/drive/folders/18fTLbj3uqtEk22aJ94A0w-UqqyyLd-_e?usp=drive_link
+   
+   After downloading, extract and organize as follows:
+   ```
+   relative-clause-extractor/
+   ├── models/
+   │   ├── ptb.biaffine.dep.lstm.char.zip
+   │   └── ptb.crf.con.lstm.char.zip
+   ├── input_texts/
+   │   ├── completed-websites-f23/
+   │   ├── completed-websites-f24/
+   │   └── completed-websites-f25/
+   ├── result/
+   │   ├── f23/
+   │   │   └── results_cursor.csv
+   │   ├── f24/
+   │   │   └── results_cursor.csv
+   │   └── f25/
+   │       └── results_cursor.csv
+   └── rc-nlp-sample-2025Nov.xlsx (validation data)
+   ```
+   
+   **Note**: The models will be automatically unzipped when first used, or you can unzip them manually.
+   
+   **Option B: Automatic download script**
    ```bash
    python download_models.py
    ```
-   This will download both required models (~665MB total) to the `models/` directory.
+   This will attempt to download both required models (~665MB total) from official sources.
+   If the URLs don't work, use Option A or C instead.
    
-   **Option B: Manual download**
+   **Option C: Manual download from SuPar releases**
    - Visit: https://github.com/yzhangcs/parser/releases
    - Look for release v1.0.0 or latest release
    - Download these two files:
      - `ptb.biaffine.dep.lstm.char.zip` (dependency parser, ~330MB)
      - `ptb.crf.con.lstm.char.zip` (constituency parser, ~330MB)
    - Place both `.zip` files in the `models/` directory
-   - Run the download script again to extract them, or manually unzip
-   
-   **Note**: If the automatic download fails, the script will show alternative URLs to try.
+   - The extractor will automatically unzip them when first used, or unzip manually
 
 ## Usage
 
