@@ -129,12 +129,15 @@ This project implements a comprehensive relative clause extraction system that i
    This will download both required models (~665MB total) to the `models/` directory.
    
    **Option B: Manual download**
-   - Download from SuPar releases: https://github.com/yzhangcs/parser/releases
+   - Visit: https://github.com/yzhangcs/parser/releases
+   - Look for release v1.0.0 or latest release
    - Download these two files:
-     - `ptb.biaffine.dep.lstm.char.zip` (dependency parser)
-     - `ptb.crf.con.lstm.char.zip` (constituency parser)
+     - `ptb.biaffine.dep.lstm.char.zip` (dependency parser, ~330MB)
+     - `ptb.crf.con.lstm.char.zip` (constituency parser, ~330MB)
    - Place both `.zip` files in the `models/` directory
-   - The extractor will automatically unzip them when first used
+   - Run the download script again to extract them, or manually unzip
+   
+   **Note**: If the automatic download fails, the script will show alternative URLs to try.
 
 ## Usage
 
