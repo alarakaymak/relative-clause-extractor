@@ -118,9 +118,23 @@ This project implements a comprehensive relative clause extraction system that i
    nltk.download('punkt_tab')
    ```
 
-4. **Ensure parser models are available**:
-   - Models should be in the `models/` directory
-   - If missing, download from SuPar model repository
+4. **Download parser models**:
+   
+   The parser models are too large for GitHub (~330MB each). You have two options:
+   
+   **Option A: Automatic download (recommended)**
+   ```bash
+   python download_models.py
+   ```
+   This will download both required models (~665MB total) to the `models/` directory.
+   
+   **Option B: Manual download**
+   - Download from SuPar releases: https://github.com/yzhangcs/parser/releases
+   - Download these two files:
+     - `ptb.biaffine.dep.lstm.char.zip` (dependency parser)
+     - `ptb.crf.con.lstm.char.zip` (constituency parser)
+   - Place both `.zip` files in the `models/` directory
+   - The extractor will automatically unzip them when first used
 
 ## Usage
 
