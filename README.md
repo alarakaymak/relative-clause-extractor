@@ -143,11 +143,11 @@ This project implements a comprehensive relative clause extraction system that i
    │   └── completed-websites-f25/
    ├── result/
    │   ├── f23/
-   │   │   └── results_cursor.csv
+   │   │   └── results_2023.csv
    │   ├── f24/
-   │   │   └── results_cursor.csv
+   │   │   └── results_2024.csv
    │   └── f25/
-   │       └── results_cursor.csv
+   │       └── results_2025.csv
    └── rc-nlp-sample-2025Nov.xlsx (validation data)
    ```
    
