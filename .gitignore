@@ -1,6 +1,8 @@
 # Results and generated data
 result/
 *.csv
+# Frozen cohort outputs shipped under v2/ (exceptions to *.csv)
+!v2/results/**/*.csv
 *.xlsx
 
 # Input data (too large for repo)
