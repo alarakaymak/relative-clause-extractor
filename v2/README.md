@@ -1,6 +1,6 @@
 # Relative clause extractor — v2 (post–PI validation)
 
-This folder is **`v2/` at the repository root** here (`relative_clauses_project/v2/`); mirror the same path in the public extractor repo. It is **separate from the original GitHub `main` extractor** (`https://github.com/alarakaymak/relative-clause-extractor`): **updated Python** plus **frozen outputs** after collaborator feedback (~early 2026). Legacy root-level code can stay untouched.
+This directory is the **recommended release** ([`v2/`](https://github.com/alarakaymak/relative-clause-extractor/tree/main/v2) in the public repo): extraction code and frozen cohort outputs revised after external validation (~early 2026). The **root-level** `relative_clause_extractor.py` on `main` predates those changes; use **`v2/`** for current behavior and for the bundled results.
 
 ## Problems flagged in validation (baseline)
 
@@ -63,14 +63,6 @@ SuPar loads **`models/…` relative to the process working directory**, not rela
 
 To match the bundled cohort layout, split or move CSVs manually into **`v2/results/f23/`**, etc.
 
-**Note:** This `v2` folder deliberately does **not** duplicate **`models/`** or raw **`input_texts/`**; only code and **precomputed** cohort CSVs are included so the footprint stays manageable.
+**Note:** This folder does **not** ship **`models/`** or **`input_texts/`**; obtain them as described in the repository root [README](https://github.com/alarakaymak/relative-clause-extractor/blob/main/README.md).
 
-## Pushing to GitHub without touching legacy `main`
-
-Typical workflow:
-
-1. **`git add v2`** from this repo root (this directory is already at `relative_clauses_project/v2`). If you use a separate `relative-clause-extractor` repo, copy this **`v2/`** folder wholesale to **that repo’s root**.
-2. Commit with a message noting “PI-feedback extractor + frozen f23/f24/f25 results.”
-3. Leave **root-level** extractor as archival if you prefer; collaborators can **`cd v2`** for the current script and totals.
-
-Questions or deltas vs another export should diff `results/*/results_cursor.csv` under this folder versus any older `results_cursor.csv`.
+To compare against an older extraction run, diff on shared keys (e.g. `sent` + `relative_clause`) against `results/<cohort>/results_cursor.csv`.
