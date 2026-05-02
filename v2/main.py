@@ -11,7 +11,7 @@ Usage:
 The script will:
 1. Process all .txt files in the input_texts/ directory
 2. Extract relative clauses using dual parsing (dependency + constituency)
-3. Write appended rows to result/results_cursor.csv
+3. Write results to result/results_{year}.csv when the input or output path contains a cohort tag (e.g. f23 → results_2023.csv); otherwise result/results.csv
 4. Display summary statistics
 """
 

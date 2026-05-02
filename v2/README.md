@@ -37,7 +37,7 @@ These CSVs are the **canonical v2 totals** matching this script revision (Januar
 | `results/f25/` | 2,924 | 2,097 | 669 | 158 |
 | **Total** | **49,060** | **35,933** | **10,663** | **2,464** |
 
-File per cohort: `results/<cohort>/results_cursor.csv`.
+File per cohort: `results/f23/results_2023.csv`, `results/f24/results_2024.csv`, `results/f25/results_2025.csv`.
 
 Each row includes the usual columns (`head_noun`, `relative_clause`, `rc_type`, `relativizer`, `file`, `sent`, counts, …).
 
@@ -57,7 +57,7 @@ SuPar loads **`models/…` relative to the process working directory**, not rela
    PYTHONPATH=v2 python v2/main.py
    ```
 
-   Then **`result/results_cursor.csv`** is written next to **`v2/`** (root-level `result/`). Edit **`v2/main.py`** if you want outputs under **`v2/result/`** instead.
+   Then **`result/results_{year}.csv`** is written next to **`v2/`** (root-level `result/`) when your **`input_texts`** or **`output_folder`** path includes a cohort tag such as **`f23`** or **`completed-websites-f23`** (that example yields **`results_2023.csv`**). If no tag is found, the file is **`result/results.csv`**. Edit **`v2/main.py`** if you want outputs under **`v2/result/`** instead.
 
 5. **Alternative:** `cd v2`, then symlink dependencies once (Unix/macOS): **`ln -sf ../models models`** (and **`ln -sf ../input_texts input_texts`** if inputs live at repo root). Run **`python main.py`** from **`v2/`**.
 
@@ -65,4 +65,4 @@ To match the bundled cohort layout, split or move CSVs manually into **`v2/resul
 
 **Note:** This folder does **not** ship **`models/`** or **`input_texts/`**; obtain them as described in the repository root [README](https://github.com/alarakaymak/relative-clause-extractor/blob/main/README.md).
 
-To compare against an older extraction run, diff on shared keys (e.g. `sent` + `relative_clause`) against `results/<cohort>/results_cursor.csv`.
+To compare against an older extraction run, diff on shared keys (e.g. `sent` + `relative_clause`) against the matching **`results_<year>.csv`** under **`results/f23/`**, etc.

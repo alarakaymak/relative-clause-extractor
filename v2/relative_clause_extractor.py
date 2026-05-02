@@ -1,4 +1,5 @@
 import os
+import re
 import nltk
 import pandas as pd
 import string
@@ -895,6 +896,22 @@ class RelativeClause:
         except Exception as e:
             return None
 
+    def _results_csv_basename(self):
+        """
+        Use results_{year}.csv when the run can be tied to a cohort folder (e.g. f23 → 2023).
+        Checks output path, input path, then the first input file path.
+        """
+        pattern = re.compile(r'(?:completed-websites-)?[Ff](\d{2})\b')
+        for p in (self.output_folder, self.input_texts):
+            m = pattern.search(p.replace(os.sep, '/'))
+            if m:
+                return f"results_{2000 + int(m.group(1))}.csv"
+        if self.input_files:
+            m = pattern.search(self.input_files[0].replace(os.sep, '/'))
+            if m:
+                return f"results_{2000 + int(m.group(1))}.csv"
+        return "results.csv"
+
     def extract_relative_clauses(self):
         """Extract relative clauses from the input files."""
         relativizer_dict_list = []
@@ -982,7 +999,8 @@ class RelativeClause:
                           "sentence_word_count", "sentence_verb_count"]
 
             # Save results to CSV (append mode to preserve existing data)
-            output_path = os.path.join(self.output_folder, "results_cursor.csv")
+            out_name = self._results_csv_basename()
+            output_path = os.path.join(self.output_folder, out_name)
             
             # Check if file exists to determine whether to write header
             file_exists = os.path.exists(output_path)
