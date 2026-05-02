@@ -755,7 +755,7 @@ class RelativeClause:
                           "sentence_word_count", "sentence_verb_count"]
 
             # Save results to CSV (append mode to preserve existing data)
-            output_path = os.path.join(self.output_folder, "results_cursor.csv")
+            output_path = os.path.join(self.output_folder, "results.csv")
             
             # Check if file exists to determine whether to write header
             file_exists = os.path.exists(output_path)
